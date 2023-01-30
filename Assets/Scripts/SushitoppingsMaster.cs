@@ -40,22 +40,22 @@ public class SushitoppingsMaster : ScriptableObject
     public class SushitoppingsMasterRecord
     {
         public string Name => _name;
-        public SpriteRenderer SpriteRenderer => spriteRenderer;
-        public Sprite Sprite => sprite;
+        public SpriteRenderer SpriteRenderer => _spriteRenderer;
+        public Sprite Sprite => _sprite;
         public Sprite FakeSprite => fakeSprite;
-        public SushitoppingsMaster.Nationality Nationality => nationality;
-        public string CaraSelif => caraselif;
+        public SushitoppingsMaster.Nationality Nationality => _nationality;
+        public string CaraSelif => _caraselif;
 
         [SerializeField]
         private string _name;
 
         [SerializeField]
         [Header("キャラのSpriteRenderer")]
-        private SpriteRenderer spriteRenderer;
+        private SpriteRenderer _spriteRenderer;
 
         [SerializeField]
         [Header("キャラのSprite")]
-        private Sprite sprite;
+        private Sprite _sprite;
 
         [SerializeField]
         [Header("IDに載せるキャラのSprite")]
@@ -63,10 +63,10 @@ public class SushitoppingsMaster : ScriptableObject
 
         [SerializeField]
         [Header("国籍")]
-        private SushitoppingsMaster.Nationality nationality;
+        private SushitoppingsMaster.Nationality _nationality;
 
         [SerializeField]
         [Header("NOと言われた時のセリフ")]
-        private string caraselif;
+        private string _caraselif;
     }
 }
