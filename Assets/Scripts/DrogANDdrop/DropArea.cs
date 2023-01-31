@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DropArea : MonoBehaviour, IDrop
 {
@@ -14,4 +15,5 @@ public class DropArea : MonoBehaviour, IDrop
         print("ƒZƒbƒg");
         print(_score);
     }
+   
 }
