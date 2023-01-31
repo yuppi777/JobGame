@@ -8,7 +8,6 @@ public class DropArea : MonoBehaviour, IDrop
     [Header("ÉXÉRÉA")]
     private int _score;
 
-
     public void Drop()
     {
         _score += 50;

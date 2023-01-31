@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "ScriptableObject/CreateAsset")]
 public class SushitoppingsMaster : ScriptableObject
@@ -42,11 +41,12 @@ public class SushitoppingsMaster : ScriptableObject
         public string Name => _name;
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public Sprite Sprite => _sprite;
-        public Sprite FakeSprite => fakeSprite;
+        public Sprite FakeSprite => _fakeSprite;
         public SushitoppingsMaster.Nationality Nationality => _nationality;
         public string CaraSelif => _caraselif;
 
         [SerializeField]
+        [Header("名前")]
         private string _name;
 
         [SerializeField]
@@ -59,11 +59,11 @@ public class SushitoppingsMaster : ScriptableObject
 
         [SerializeField]
         [Header("IDに載せるキャラのSprite")]
-        private Sprite fakeSprite;
+        private Sprite _fakeSprite;
 
         [SerializeField]
         [Header("国籍")]
-        private SushitoppingsMaster.Nationality _nationality;
+        private Nationality _nationality;
 
         [SerializeField]
         [Header("NOと言われた時のセリフ")]

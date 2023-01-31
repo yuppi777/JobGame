@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 public class RaneMaster : MonoBehaviour
 {
@@ -20,13 +22,20 @@ public class RaneMaster : MonoBehaviour
          
     void Start()
     {
+        RaneInstantiate();
+
+        this.UpdateAsObservable().Subscribe(x => Rane());
+    }
+
+    private void RaneInstantiate()
+    {
         for (int i = 0; i < _step.Length; i++)
         {
             _step[i] = Instantiate(_rane[i], new Vector3(4 * i, 0, 0), Quaternion.identity);
         }
     }
 
-    void Update()
+    private void Rane()
     {
         for (int i = 0; i < _step.Length; i++)
         {
@@ -37,7 +46,4 @@ public class RaneMaster : MonoBehaviour
             }
         }
     }
-
-
-  
 }
