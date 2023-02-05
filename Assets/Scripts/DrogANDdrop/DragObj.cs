@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class DragObj : MonoBehaviour, IDragHandler, IBeginDragHandler
+public class DragObj : MonoBehaviour, IDragHandler, IBeginDragHandler,IEndDragHandler
 {
 
     private Vector2 prevPos;
@@ -19,5 +19,9 @@ public class DragObj : MonoBehaviour, IDragHandler, IBeginDragHandler
     {
         // ドラッグ中は位置を更新する
         transform.position = eventData.position;
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+       // print($"OnEndDrag : {eventData}");
     }
 }

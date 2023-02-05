@@ -2,12 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
+using System.Linq;
 
-public class SushiToppingJudgement : MonoBehaviour, IDropHandler
+public class SushiToppingJudgement : MonoBehaviour 
 {
-    public void OnDrop(PointerEventData eventData)
+    List<string> _truePattern = new List<string>();
+
+    private void Start()
     {
-        Debug.Log(gameObject.name + "に" + eventData.pointerDrag.name + "がドロップされました。");
-        
+        PatternAdd();
+
+        string name = _truePattern.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
     }
+
+    #region リストにAddする関数
+    public void PatternAdd()
+    {
+        _truePattern.Add("Tuna");
+    }
+    #endregion 
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "ScriptableObject/CreateAsset")]
 public class SushitoppingsMaster : ScriptableObject
@@ -12,13 +13,7 @@ public class SushitoppingsMaster : ScriptableObject
     [Header("データ")]
     List<SushitoppingsMasterRecord> _sheet;
 
-    public enum JobPost
-    {
-        Programer,
-        Modeler,
-        Motion,
-        Director
-    }
+    
 
     public enum Rarity
     {
@@ -27,10 +22,10 @@ public class SushitoppingsMaster : ScriptableObject
         SR = 2,
         SSR = 3
     }
-    public enum Nationality
+    public enum ToppingName
     {
-        Japan,
-        Jamaica,
+        Tuna,
+        Shari,
         Coria,
     }
 
@@ -38,20 +33,20 @@ public class SushitoppingsMaster : ScriptableObject
     [Serializable]
     public class SushitoppingsMasterRecord
     {
-        public string Name => _name;
-        public SpriteRenderer SpriteRenderer => _spriteRenderer;
+        //public string Name => _name;
+        public Sprite Image => _topping;
         public Sprite Sprite => _sprite;
         public Sprite FakeSprite => _fakeSprite;
-        public SushitoppingsMaster.Nationality Nationality => _nationality;
-        public string CaraSelif => _caraselif;
+        public SushitoppingsMaster.ToppingName Nationality => _toppingName;
+        //public string CaraSelif => _caraselif;
+
+        //[SerializeField]
+        //[Header("名前")]
+        //private string _name;
 
         [SerializeField]
-        [Header("名前")]
-        private string _name;
-
-        [SerializeField]
-        [Header("キャラのSpriteRenderer")]
-        private SpriteRenderer _spriteRenderer;
+        [Header("寿司ネタのSpriteRenderer")]
+        private Sprite _topping;
 
         [SerializeField]
         [Header("キャラのSprite")]
@@ -62,11 +57,11 @@ public class SushitoppingsMaster : ScriptableObject
         private Sprite _fakeSprite;
 
         [SerializeField]
-        [Header("国籍")]
-        private Nationality _nationality;
+        [Header("寿司ネタ")]
+        private ToppingName _toppingName;
 
-        [SerializeField]
-        [Header("NOと言われた時のセリフ")]
-        private string _caraselif;
+        //[SerializeField]
+        //[Header("NOと言われた時のセリフ")]
+        //private string _caraselif;
     }
 }
