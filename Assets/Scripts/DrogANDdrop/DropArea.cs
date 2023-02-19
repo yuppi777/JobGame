@@ -11,9 +11,9 @@ public class DropArea : MonoBehaviour, IDrop
 
     public void Drop()
     {
-        _score += 50;
-        print("セット");
-        print(_score);
+       // _score += 50;// スコアアップ
+        Debug.Log("セット");
+        Debug.Log(_score);
     }
    
 }

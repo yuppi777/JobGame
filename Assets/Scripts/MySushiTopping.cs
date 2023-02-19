@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class MySushiTopping : MonoBehaviour
 {
-    List<string> topping = new List<string>();
+    //List<string> topping = new List<string>();
+   public MyTopping myTopping;
+   
+   public enum MyTopping
+    {
+        Tuna,
+        Syari,
+    }
    
 }

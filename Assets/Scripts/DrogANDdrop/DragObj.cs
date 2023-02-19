@@ -8,6 +8,9 @@ public class DragObj : MonoBehaviour, IDragHandler, IBeginDragHandler,IEndDragHa
 {
 
     private Vector2 prevPos;
+    [SerializeField]
+    [Header("生成スクリプト")]
+    private NetaInstantiate _netaInstantiate;
     public void OnBeginDrag(PointerEventData eventData)
     {
         // ドラッグ前の位置を記憶しておく
@@ -22,6 +25,10 @@ public class DragObj : MonoBehaviour, IDragHandler, IBeginDragHandler,IEndDragHa
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-       // print($"OnEndDrag : {eventData}");
+        // print($"OnEndDrag : {eventData}");
+
+
+        _netaInstantiate.NetaInst();
+        
     }
 }

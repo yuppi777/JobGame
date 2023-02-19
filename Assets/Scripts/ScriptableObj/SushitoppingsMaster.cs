@@ -35,8 +35,11 @@ public class SushitoppingsMaster : ScriptableObject
     {
         //public string Name => _name;
         public Sprite Image => _topping;
+
         public Sprite Sprite => _sprite;
+
         public Sprite FakeSprite => _fakeSprite;
+
         public SushitoppingsMaster.ToppingName Nationality => _toppingName;
         //public string CaraSelif => _caraselif;
 
