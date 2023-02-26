@@ -12,7 +12,7 @@ public class RaneMaster : MonoBehaviour
 
     [SerializeField] 
     [Header("レーンの動くスピード")]
-    private float _speed;
+    public float _speed;
     
     private float _disappear = -10.0f;
 

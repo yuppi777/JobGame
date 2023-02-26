@@ -20,7 +20,10 @@ public class Drop : MonoBehaviour, IDropHandler
             {
                 drop.Drop();
                 transform.position = hit.gameObject.transform.position;
+                transform.SetParent(hit.gameObject.transform);
                 Debug.Log("NotçÌèú");
+                
+                
                 
             }
             else

@@ -17,6 +17,8 @@ public class SushiToppingJudgement : MonoBehaviour
     private int truePoint;
     private bool isSyari = false;
 
+    public string TrueSushiToppingName { get => trueSushiToppingName;  }
+
     private void Start()
     {
         PatternAdd();
@@ -50,6 +52,7 @@ public class SushiToppingJudgement : MonoBehaviour
     public void PatternAdd()
     {
         _truePattern.Add("Tuna");
+        _truePattern.Add("Squid");
 
     }
     #endregion 
@@ -71,7 +74,7 @@ public class SushiToppingJudgement : MonoBehaviour
         switch (trueSushiToppingName)
         {
             case "Tuna":
-                if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Tuna)
+                if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Tuna && isSyari)
                 {
                     truePoint += 1;
                     Debug.Log("正解");
@@ -81,6 +84,18 @@ public class SushiToppingJudgement : MonoBehaviour
                     Debug.Log("不正解");
                 }
                 Debug.Log("まぐろの皿が作られれば正解です");
+                break;
+            case "Squid":
+                if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Squid && isSyari)
+                {
+                    truePoint += 1;
+                    Debug.Log("正解");
+                }
+                else
+                {
+                    Debug.Log("不正解");
+                }
+                Debug.Log("イカの皿が作られれば正解です");
                 break;
 
         }

@@ -27,6 +27,7 @@ public class SushitoppingsMaster : ScriptableObject
         Tuna,
         Shari,
         Coria,
+        Squid,
     }
 
 
@@ -34,13 +35,13 @@ public class SushitoppingsMaster : ScriptableObject
     public class SushitoppingsMasterRecord
     {
         //public string Name => _name;
-        public Sprite Image => _topping;
+        public Sprite Topping => _topping;
 
-        public Sprite Sprite => _sprite;
+        public Sprite ToppingParts => _toppingparts;
 
-        public Sprite FakeSprite => _fakeSprite;
+        
 
-        public SushitoppingsMaster.ToppingName Nationality => _toppingName;
+        public SushitoppingsMaster.ToppingName ToppingNameEnum => _toppingName;
         //public string CaraSelif => _caraselif;
 
         //[SerializeField]
@@ -48,23 +49,18 @@ public class SushitoppingsMaster : ScriptableObject
         //private string _name;
 
         [SerializeField]
-        [Header("寿司ネタのSpriteRenderer")]
+        [Header("寿司ネタのSprite")]
         private Sprite _topping;
 
         [SerializeField]
-        [Header("キャラのSprite")]
-        private Sprite _sprite;
+        [Header("寿司ネタの部品")]
+        private Sprite _toppingparts;
+
 
         [SerializeField]
-        [Header("IDに載せるキャラのSprite")]
-        private Sprite _fakeSprite;
-
-        [SerializeField]
-        [Header("寿司ネタ")]
+        [Header("寿司ネタの名前")]
         private ToppingName _toppingName;
 
-        //[SerializeField]
-        //[Header("NOと言われた時のセリフ")]
-        //private string _caraselif;
+        
     }
 }

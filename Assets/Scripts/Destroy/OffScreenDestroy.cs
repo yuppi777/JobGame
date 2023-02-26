@@ -17,4 +17,5 @@ public class OffScreenDestroy : MonoBehaviour
         //    _netaInstantiate.NetaInst();
         //}
     }
+
 }

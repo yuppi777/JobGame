@@ -20,10 +20,7 @@ public class NetaInstantiate : MonoBehaviour
     [Header("リスポーンエリア")]
     private Transform _spwnearia;
 
-    void Start()
-    {
-        //_spwnearia.position = this.gameObject.transform.position;
-    }
+   
 
     public void NetaInst()
     {
@@ -36,9 +33,7 @@ public class NetaInstantiate : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
+   
+
 }

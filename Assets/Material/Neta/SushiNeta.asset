@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a095a8a54791c64db7fd41fdadb8195, type: 3}
-  m_Name: SushiToppings
+  m_Name: SushiNeta
   m_EditorClassIdentifier: 
   _sheet:
-  - _topping: {fileID: 21300000, guid: a0db6dd07c841534caaa3dc7a09bf447, type: 3}
-    _sprite: {fileID: 0}
-    _fakeSprite: {fileID: 0}
+  - _topping: {fileID: 21300000, guid: 0559d8d3237086840ad5b132fbf88ca0, type: 3}
+    _toppingparts: {fileID: 1008770775, guid: d691db78bcaf908429fde5afadad2178, type: 3}
     _toppingName: 0
-  - _topping: {fileID: 21300000, guid: 64b7e7af37985df498afdac524e23ecf, type: 3}
-    _sprite: {fileID: 0}
-    _fakeSprite: {fileID: 0}
-    _toppingName: 1
+  - _topping: {fileID: 21300000, guid: 997abcefbe5b66144b324e6320a852ee, type: 3}
+    _toppingparts: {fileID: 21300000, guid: 997abcefbe5b66144b324e6320a852ee, type: 3}
+    _toppingName: 3
