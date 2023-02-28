@@ -9,12 +9,15 @@ public class SushiToppingJudgement : MonoBehaviour
 {
     List<string> _truePattern = new List<string>();
 
-   // List<MySushiTopping> mySushiToppings = new List<MySushiTopping>();
+    // List<MySushiTopping> mySushiToppings = new List<MySushiTopping>();
+
+    [SerializeField]
+    [Header("ポイントシート")]
+    private PointSheet _pointSheet;
 
     private MySushiTopping mySushiTopping;
     //private MySushiTopping mySushiTopping2;
     private string trueSushiToppingName;
-    private int truePoint;
     private bool isSyari = false;
 
     public string TrueSushiToppingName { get => trueSushiToppingName;  }
@@ -25,6 +28,7 @@ public class SushiToppingJudgement : MonoBehaviour
         trueSushiToppingName = _truePattern.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
         //Judgement();
         Debug.Log(trueSushiToppingName);
+        _pointSheet = GameObject.Find("PointSheet").GetComponent<PointSheet>();
 
     }
 
@@ -76,7 +80,9 @@ public class SushiToppingJudgement : MonoBehaviour
             case "Tuna":
                 if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Tuna && isSyari)
                 {
-                    truePoint += 1;
+                   
+                    _pointSheet._truePoint += 1;
+
                     Debug.Log("正解");
                 }
                 else
@@ -86,9 +92,9 @@ public class SushiToppingJudgement : MonoBehaviour
                 Debug.Log("まぐろの皿が作られれば正解です");
                 break;
             case "Squid":
-                if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Squid && isSyari)
+                if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Squid )
                 {
-                    truePoint += 1;
+                    _pointSheet._truePoint += 1;
                     Debug.Log("正解");
                 }
                 else
