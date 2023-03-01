@@ -29,6 +29,7 @@ public class SushiToppingJudgement : MonoBehaviour
         //Judgement();
         Debug.Log(trueSushiToppingName);
         _pointSheet = GameObject.Find("PointSheet").GetComponent<PointSheet>();
+        _pointSheet._isFalse = false;
 
     }
 
@@ -44,12 +45,12 @@ public class SushiToppingJudgement : MonoBehaviour
         {
           mySushiTopping = other.GetComponent<MySushiTopping>();
             //mySushiTopping2 = other.GetComponent<MySushiTopping>();
-            Judgement();
+            //Judgement();
             //Debug.Log(" 寿司トッピングを開始");
         }
+        //Judgement();
 
-      
-       
+
     }
 
     #region リストにAddする関数
@@ -72,39 +73,62 @@ public class SushiToppingJudgement : MonoBehaviour
         //{
         //    truePoint += 1;
         //    Debug.Log("正解");
-           
+
+        //}
+        //if (mySushiTopping == null)
+        //{
+        //    _pointSheet._isFalse = true;
         //}
 
         switch (trueSushiToppingName)
         {
             case "Tuna":
-                if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Tuna && isSyari)
+                try
                 {
-                   
-                    _pointSheet._truePoint += 1;
+                    if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Tuna && isSyari)
+                    {
 
-                    Debug.Log("正解");
+                        _pointSheet._truePoint += 1;
+
+                        Debug.Log("正解");
+                    }
+                    else
+                    {
+                        Debug.Log("不正解");
+                        _pointSheet._isFalse = true;
+                    }
+                    Debug.Log("まぐろの皿が作られれば正解です");
                 }
-                else
+                catch (System.Exception)
                 {
-                    Debug.Log("不正解");
-                }
-                Debug.Log("まぐろの皿が作られれば正解です");
+                    _pointSheet._isFalse = true;
+                    Debug.Log("何もネタが乗らなかった");
+                }  
                 break;
             case "Squid":
-                if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Squid )
+                try
                 {
-                    _pointSheet._truePoint += 1;
-                    Debug.Log("正解");
+                    if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Squid)
+                    {
+                        _pointSheet._truePoint += 1;
+                        Debug.Log("正解");
+                    }
+                    else
+                    {
+                        Debug.Log("不正解");
+                        _pointSheet._isFalse = true;
+                    }
                 }
-                else
+                catch (System.Exception)
                 {
-                    Debug.Log("不正解");
+
+                    _pointSheet._isFalse = true;
+                    Debug.Log("何もネタが乗らなかった");
                 }
-                Debug.Log("イカの皿が作られれば正解です");
                 break;
 
         }
+        
 
     }
 }

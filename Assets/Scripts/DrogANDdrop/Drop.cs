@@ -9,6 +9,11 @@ public class Drop : MonoBehaviour, IDropHandler
     [SerializeField]
     [Header("生成するためのスクリプト")]
     private NetaInstantiate _netaInstantiate;
+
+    private void Start()
+    {
+        _netaInstantiate = this.gameObject.GetComponentInParent<NetaInstantiate>();
+    }
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("置いた");

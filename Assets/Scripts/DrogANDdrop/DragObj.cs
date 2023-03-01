@@ -11,6 +11,11 @@ public class DragObj : MonoBehaviour, IDragHandler, IBeginDragHandler,IEndDragHa
     [SerializeField]
     [Header("生成スクリプト")]
     private NetaInstantiate _netaInstantiate;
+
+    private void Start()
+    {
+        _netaInstantiate = this.gameObject.GetComponentInParent<NetaInstantiate>();
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         // ドラッグ前の位置を記憶しておく

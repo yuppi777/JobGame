@@ -6,11 +6,12 @@ public class PointSheet : MonoBehaviour
 {
     public int _truePoint;
     public int _falsePoint;
+    public bool _isFalse = false;//•s³‰ğ‚Ìƒu[ƒ‹
 
 
     private void Update()
     {
-        //Debug.Log(_truePoint);
+        //Debug.Log(_isFalse);
     }
 
 }
