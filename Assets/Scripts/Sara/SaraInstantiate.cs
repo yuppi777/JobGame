@@ -24,6 +24,8 @@ public class SaraInstantiate : MonoBehaviour
     [Header("リスポーン装置のオンオフ")]
     private bool isInstantiate;
 
+    public int Count { get => _count; }
+
     private void Start()
     {
         StartCoroutine(SaraInst());

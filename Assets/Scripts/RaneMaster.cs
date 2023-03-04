@@ -31,7 +31,7 @@ public class RaneMaster : MonoBehaviour
     {
         for (int i = 0; i < _step.Length; i++)
         {
-            _step[i] = Instantiate(_rane[i], new Vector3(4 * i, 0, 0), Quaternion.identity);
+            _step[i] = Instantiate(_rane[i], new Vector3(4 * i, -1, 0), Quaternion.identity);
         }
     }
 
@@ -42,7 +42,7 @@ public class RaneMaster : MonoBehaviour
             _step[i].gameObject.transform.position -= new Vector3(_speed * Time.deltaTime, 0, 0);
             if (_step[i].gameObject.transform.position.x < _disappear)
             {
-                _step[i].gameObject.transform.position = new Vector3(_respawn, 0, 0);
+                _step[i].gameObject.transform.position = new Vector3(_respawn, -1, 0);
             }
         }
     }
