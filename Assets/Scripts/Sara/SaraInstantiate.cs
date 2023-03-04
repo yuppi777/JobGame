@@ -20,11 +20,16 @@ public class SaraInstantiate : MonoBehaviour
     [Header("生成数")]
     private int _count;
 
-    [SerializeField]
+    private int _nowcount;
+
+    
     [Header("リスポーン装置のオンオフ")]
-    private bool isInstantiate;
+    public bool isInstantiate;
+
+    private bool isInstantiateCleaEnd = false; //上限まで生産終了のブール
 
     public int Count { get => _count; }
+    public bool IsInstantiateCleaEnd { get => isInstantiateCleaEnd; }
 
     private void Start()
     {
@@ -34,12 +39,27 @@ public class SaraInstantiate : MonoBehaviour
     {
         if (isInstantiate)
         {
-            for (int count = 0; count < _count; count++)
+            for ( _nowcount = 0; _nowcount < _count; _nowcount++)
             {
+                
                 GameObject prefab = Instantiate(_sara, _spwnearia.position.normalized, Quaternion.identity);
                 prefab.transform.SetParent(_spwnearia.transform, false);
+                if (isInstantiate == false)
+                {
+                    
+                    Debug.Log("生産終了");
+                    break;
+                }
                 yield return new WaitForSeconds(_interval);
+                
             }
+            if (_nowcount == _count)
+            {
+                isInstantiateCleaEnd = true;
+                Debug.Log("上限まで生産しまいた");
+            }
+
+            
 
         }
     }

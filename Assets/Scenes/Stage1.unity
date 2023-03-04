@@ -1098,6 +1098,7 @@ MonoBehaviour:
   _bossName: {fileID: 1153925318}
   _pointSheet: {fileID: 852647549}
   _bossSpwnArea: {fileID: 552761045}
+  _retryButtun: {fileID: 1512380752}
 --- !u!1001 &1298263648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1381,7 +1382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1512380751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1456,7 +1457,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Title
+          m_StringArgument: Stage1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1512380753
@@ -1472,7 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8018868, g: 0.14676036, b: 0.14676036, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1942,7 +1943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142ef3014aca46f4e9b16b2e87409c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _neta: {fileID: 809404262}
+  _neta: {fileID: 8081798989803502057, guid: cb42177fdb2314441ae0a2201b5949f4, type: 3}
   _spwnearia: {fileID: 2033107000}
 --- !u!114 &2033107004
 MonoBehaviour:

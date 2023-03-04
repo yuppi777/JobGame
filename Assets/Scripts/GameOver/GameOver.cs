@@ -69,6 +69,7 @@ public class GameOver : MonoBehaviour
             
             Debug.Log("ゲームオーバー");
             StartCoroutine(_gameOverMove());
+            _saraInstantiate.isInstantiate = false;
             _isgameOver = true;
 
         }
