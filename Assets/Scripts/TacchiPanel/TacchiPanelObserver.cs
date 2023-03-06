@@ -53,6 +53,19 @@ public class TacchiPanelObserver : MonoBehaviour
                         _nowtruesprite = nowtruesprite.Topping;
                         _panel.sprite = _nowtruesprite;
                         break;
+                    case "Kuri":
+                        _sheet = _sushiToppingMaster.Sheet;
+                        nowtruesprite = _sheet.Where(x => x.ToppingNameEnum == SushitoppingsMaster.ToppingName.Kuri).First();
+                        _nowtruesprite = nowtruesprite.Topping;
+                        _panel.sprite = _nowtruesprite;
+                        break;
+                    case "Surmon":
+                        _sheet = _sushiToppingMaster.Sheet;
+                        nowtruesprite = _sheet.Where(x => x.ToppingNameEnum == SushitoppingsMaster.ToppingName.Surmon).First();
+                        _nowtruesprite = nowtruesprite.Topping;
+                        _panel.sprite = _nowtruesprite;
+                        break;
+
                 }
             })
             .AddTo(gameObject);

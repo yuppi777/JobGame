@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class SushiToppingJudgement : MonoBehaviour 
 {
@@ -24,8 +25,10 @@ public class SushiToppingJudgement : MonoBehaviour
 
     private void Start()
     {
-        PatternAdd();
+        PatternAdd(SceneManager.GetActiveScene().name);
         trueSushiToppingName = _truePattern.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+
+
         //Judgement();
         Debug.Log(trueSushiToppingName);
         _pointSheet = GameObject.Find("PointSheet").GetComponent<PointSheet>();
@@ -54,10 +57,21 @@ public class SushiToppingJudgement : MonoBehaviour
     }
 
     #region リストにAddする関数
-    public void PatternAdd()
+    public void PatternAdd(string _stageName)
     {
-        _truePattern.Add("Tuna");
-        _truePattern.Add("Squid");
+        if (_stageName == "Stage1")
+        {
+            _truePattern.Add("Tuna");
+            _truePattern.Add("Squid");
+        }
+        if (_stageName == "Stage2")
+        {
+          _truePattern.Add("Tuna");
+          _truePattern.Add("Squid");
+          _truePattern.Add("Kuri");
+          _truePattern.Add("Surmon");
+        }
+        
 
     }
     #endregion 
@@ -126,7 +140,50 @@ public class SushiToppingJudgement : MonoBehaviour
                     Debug.Log("何もネタが乗らなかった");
                 }
                 break;
+            case "Kuri":
+                try
+                {
+                    if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Kuri)
+                    {
+                        _pointSheet._truePoint += 1;
+                        Debug.Log("正解");
+                    }
+                    else
+                    {
+                        Debug.Log("不正解");
+                        _pointSheet._isFalse = true;
+                    }
+                }
+                catch (System.Exception)
+                {
 
+                    _pointSheet._isFalse = true;
+                    Debug.Log("何もネタが乗らなかった");
+                }
+                break;
+            case "Surmon":
+                try
+                {
+                    if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Surmon && isSyari)
+                    {
+
+                        _pointSheet._truePoint += 1;
+
+                        Debug.Log("正解");
+                    }
+                    else
+                    {
+                        Debug.Log("不正解");
+                        _pointSheet._isFalse = true;
+                    }
+                    Debug.Log("サーモンの皿が作られれば正解です");
+                }
+                catch (System.Exception)
+                {
+                    _pointSheet._isFalse = true;
+                    Debug.Log("何もネタが乗らなかった");
+                }
+                break;
         }
         
 

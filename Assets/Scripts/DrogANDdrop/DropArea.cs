@@ -14,6 +14,7 @@ public class DropArea : MonoBehaviour, IDrop
        // _score += 50;// スコアアップ
         Debug.Log("セット");
         Debug.Log(_score);
+        AudioManager.Instance.PlaySE("cursol");
     }
    
 }

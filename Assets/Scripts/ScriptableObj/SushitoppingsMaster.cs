@@ -28,6 +28,8 @@ public class SushitoppingsMaster : ScriptableObject
         Shari,
         Coria,
         Squid,
+        Kuri,
+        Surmon,
     }
 
 

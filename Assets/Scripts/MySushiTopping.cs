@@ -12,6 +12,8 @@ public class MySushiTopping : MonoBehaviour
         Tuna,
         Syari,
         Squid,
+        Kuri,
+        Surmon,
     }
    
 }

@@ -9,9 +9,9 @@ public class PointSheet : MonoBehaviour
     public bool _isFalse = false;//•s³‰ğ‚Ìƒu[ƒ‹
 
 
-    private void Update()
+    private void Awake()
     {
-        //Debug.Log(_isFalse);
+        DontDestroyOnLoad(this.gameObject);
     }
 
 }
