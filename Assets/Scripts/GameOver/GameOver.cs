@@ -42,6 +42,10 @@ public class GameOver : MonoBehaviour
     [Header("リトライボタン")]
     private Button _retryButtun;
 
+    [SerializeField]
+    [Header("タイトルボタン")]
+    private Button _titleBottun;
+
 
     List<string> _gameOverSerifList = new List<string>();
     private string _gameOverSerif;
@@ -57,6 +61,10 @@ public class GameOver : MonoBehaviour
     {
         _gameOverSerifList.Add("今日はもう帰っていいよ");
         _gameOverSerifList.Add("お客様からクレーム来たよ");
+        _gameOverSerifList.Add("研修期間もう終わってるよ？");
+        _gameOverSerifList.Add("会社は学校じゃないんだよ？");
+        _gameOverSerifList.Add("クレームが止まらないよ");
+        _gameOverSerifList.Add("クビ、カナ？");
 
     }
     #endregion 
@@ -71,6 +79,7 @@ public class GameOver : MonoBehaviour
             StartCoroutine(_gameOverMove());
             _saraInstantiate.isInstantiate = false;
             _isgameOver = true;
+            AudioManager.Instance.PlayBGM("wafu-gameover");
 
         }
     }
@@ -86,6 +95,7 @@ public class GameOver : MonoBehaviour
         yield return new WaitForSeconds(5f);
         _advencherObj.SetActive(false);
         _retryButtun.gameObject.SetActive(true);
+        _titleBottun.gameObject.SetActive(true);
     }
 
 }

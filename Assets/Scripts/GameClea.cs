@@ -13,12 +13,21 @@ public class GameClea : MonoBehaviour
     [Header("リザルトボタン")]
     private GameObject _resultButton;
 
+    [SerializeField]
+    [Header("タイトルボタン")]
+    private GameObject _titolbottun;
 
     private void Start()
     {
         _saraInstantiate.ObserveEveryValueChanged(y => y.IsInstantiateCleaEnd)
                                                  .Where(y => y)
-                                                 .Subscribe(_ =>_resultButton.gameObject.SetActive(true));
+                                                 .Subscribe(_ =>CleaMove());
                                                  
+    }
+    private void CleaMove()
+    {
+        _resultButton.gameObject.SetActive(true);
+        //_titolbottun.gameObject.SetActive(true);
+        AudioManager.Instance.PlayBGM("clea");
     }
 }
