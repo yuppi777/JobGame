@@ -5,16 +5,27 @@ using UnityEngine.EventSystems;
 using System;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SushiToppingJudgement : MonoBehaviour 
 {
     List<string> _truePattern = new List<string>();
+
+    List<GameObject> _attachObjList = new List<GameObject>();//皿の上に乗ってきたゲームオブジェクト;
 
     // List<MySushiTopping> mySushiToppings = new List<MySushiTopping>();
 
     [SerializeField]
     [Header("ポイントシート")]
     private PointSheet _pointSheet;
+
+    [SerializeField]
+    [Header("画像が入ってるスクリプタブルオブジェクト")]
+    private SushitoppingsMaster _sushiToppingMaster;
+
+    [SerializeField]
+    [Header("正解したら出すイメージ")]
+    private Image _truesprite;
 
     private MySushiTopping mySushiTopping;
     //private MySushiTopping mySushiTopping2;
@@ -38,17 +49,24 @@ public class SushiToppingJudgement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-       
-       
+
+        //if (_pointSheet._isTrue == true)
+        //{
+        //    AttachObjDestroy();
+        //}
+
+
         if (other.tag == "Syari")
         {
             isSyari = true;
+            _attachObjList.Add(other.gameObject);
         }
         if (other.tag == "SushiTopping")
         {
           mySushiTopping = other.GetComponent<MySushiTopping>();
+            _attachObjList.Add(other.gameObject); 
             //mySushiTopping2 = other.GetComponent<MySushiTopping>();
-            //Judgement();
+            Judgement();
             //Debug.Log(" 寿司トッピングを開始");
         }
         //Judgement();
@@ -75,12 +93,21 @@ public class SushiToppingJudgement : MonoBehaviour
 
     }
     #endregion 
-
-
+    /// <summary>
+    /// 皿に乗っているものを消す関数
+    /// </summary>
+    private void AttachObjDestroy()
+    {
+        foreach (GameObject attachobj in _attachObjList)
+        {
+            Destroy(attachobj);
+            //attachobj.gameObject.SetActive(false);
+        }
+    }
     public void Judgement()
     {
-        Debug.Log("ジャッジメント発動");
-        Debug.Log(isSyari);
+        //Debug.Log("ジャッジメント発動");
+        //Debug.Log(isSyari);
         //mySushiToppings.Where
 
         //if (trueSushiToppingName == mySushiTopping.myTopping)
@@ -102,21 +129,26 @@ public class SushiToppingJudgement : MonoBehaviour
                     if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Tuna && isSyari)
                     {
 
-                        _pointSheet._truePoint += 1;
+                        var _sheet = _sushiToppingMaster.Sheet;
+                        var nowtruesprite = _sheet.Where(x => x.ToppingNameEnum == SushitoppingsMaster.ToppingName.Tuna).First();
+                        _truesprite.gameObject.SetActive(true);
+                        _truesprite.sprite = nowtruesprite.Topping;
 
-                        Debug.Log("正解");
+                        _pointSheet._isTrue = true;
+                        AttachObjDestroy();
+                        //Debug.Log("正解");
                     }
                     else
                     {
-                        Debug.Log("不正解");
+                        //Debug.Log("不正解");
                         _pointSheet._isFalse = true;
                     }
-                    Debug.Log("まぐろの皿が作られれば正解です");
+                    //Debug.Log("まぐろの皿が作られれば正解です");
                 }
                 catch (System.Exception)
                 {
                     _pointSheet._isFalse = true;
-                    Debug.Log("何もネタが乗らなかった");
+                    //Debug.Log("何もネタが乗らなかった");
                 }  
                 break;
             case "Squid":
@@ -124,12 +156,19 @@ public class SushiToppingJudgement : MonoBehaviour
                 {
                     if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Squid)
                     {
-                        _pointSheet._truePoint += 1;
-                        Debug.Log("正解");
+
+
+                        var _sheet = _sushiToppingMaster.Sheet;
+                        var nowtruesprite = _sheet.Where(x => x.ToppingNameEnum == SushitoppingsMaster.ToppingName.Squid).First();
+                        _truesprite.gameObject.SetActive(true);
+                        _truesprite.sprite = nowtruesprite.Topping;
+                        _pointSheet._isTrue = true;
+                        AttachObjDestroy();
+                        //Debug.Log("正解");
                     }
                     else
                     {
-                        Debug.Log("不正解");
+                        //Debug.Log("不正解");
                         _pointSheet._isFalse = true;
                     }
                 }
@@ -137,7 +176,7 @@ public class SushiToppingJudgement : MonoBehaviour
                 {
 
                     _pointSheet._isFalse = true;
-                    Debug.Log("何もネタが乗らなかった");
+                    //Debug.Log("何もネタが乗らなかった");
                 }
                 break;
             case "Kuri":
@@ -145,12 +184,20 @@ public class SushiToppingJudgement : MonoBehaviour
                 {
                     if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Kuri)
                     {
-                        _pointSheet._truePoint += 1;
-                        Debug.Log("正解");
+
+                        var _sheet = _sushiToppingMaster.Sheet;
+                        var nowtruesprite = _sheet.Where(x => x.ToppingNameEnum == SushitoppingsMaster.ToppingName.Kuri).First();
+                        _truesprite.gameObject.SetActive(true);
+                        _truesprite.sprite = nowtruesprite.Topping;
+                        
+
+                        _pointSheet._isTrue =true;
+                        AttachObjDestroy();
+                        //Debug.Log("正解");
                     }
                     else
                     {
-                        Debug.Log("不正解");
+                        //Debug.Log("不正解");
                         _pointSheet._isFalse = true;
                     }
                 }
@@ -158,7 +205,7 @@ public class SushiToppingJudgement : MonoBehaviour
                 {
 
                     _pointSheet._isFalse = true;
-                    Debug.Log("何もネタが乗らなかった");
+                    //Debug.Log("何もネタが乗らなかった");
                 }
                 break;
             case "Surmon":
@@ -167,21 +214,26 @@ public class SushiToppingJudgement : MonoBehaviour
                     if (mySushiTopping.myTopping == MySushiTopping.MyTopping.Surmon && isSyari)
                     {
 
-                        _pointSheet._truePoint += 1;
+                        var _sheet = _sushiToppingMaster.Sheet;
+                        var nowtruesprite = _sheet.Where(x => x.ToppingNameEnum == SushitoppingsMaster.ToppingName.Surmon).First();
+                        _truesprite.gameObject.SetActive(true);
+                        _truesprite.sprite = nowtruesprite.Topping;
 
-                        Debug.Log("正解");
+                        _pointSheet._isTrue = true;
+                        AttachObjDestroy();
+                        //Debug.Log("正解");
                     }
                     else
                     {
-                        Debug.Log("不正解");
+                        //Debug.Log("不正解");
                         _pointSheet._isFalse = true;
                     }
-                    Debug.Log("サーモンの皿が作られれば正解です");
+                    //Debug.Log("サーモンの皿が作られれば正解です");
                 }
                 catch (System.Exception)
                 {
                     _pointSheet._isFalse = true;
-                    Debug.Log("何もネタが乗らなかった");
+                    //Debug.Log("何もネタが乗らなかった");
                 }
                 break;
         }

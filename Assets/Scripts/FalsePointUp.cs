@@ -32,6 +32,13 @@ public class FalsePointUp : MonoBehaviour
             _pointSheet._falsePoint += 1;
             AudioManager.Instance.PlaySE("miss");
         }
+        if (_pointSheet._isTrue == true)
+        {
+            _pointSheet._truePoint += 1;
+            //AudioManager.Instance.PlaySE("miss");
+        }
+
+
         _falsePointText.text = "ïsê≥âêî" + _pointSheet._falsePoint.ToString();
        
     }

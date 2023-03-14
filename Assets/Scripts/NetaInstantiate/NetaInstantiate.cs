@@ -10,8 +10,12 @@ public class NetaInstantiate : MonoBehaviour
     //[Header("ネタ")]
     //List<GameObject> _netas;
     [SerializeField]
-    [Header("ネタ")]
+    [Header("生成用ネタ")]
     private GameObject _neta;
+
+    [SerializeField]
+    [Header("今あるネタ")]
+    private GameObject _nowneta;
 
 
     //private GameObject[] _step = new GameObject[3];
@@ -20,7 +24,7 @@ public class NetaInstantiate : MonoBehaviour
     [Header("リスポーンエリア")]
     private Transform _spwnearia;
 
-   
+    public GameObject Nowneta { get => _nowneta; }
 
     public void NetaInst()
     {
@@ -32,8 +36,17 @@ public class NetaInstantiate : MonoBehaviour
         prefab.transform.SetParent(_spwnearia.transform, false);
     }
 
+    private void Update()
+    {
 
-   
-   
+        if (_nowneta == null)
+        {
+            NetaInst();
+        }
+
+
+    }
+
+
 
 }

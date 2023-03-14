@@ -27,6 +27,12 @@ public class DragObj : MonoBehaviour, IDragHandler, IBeginDragHandler,IEndDragHa
     {
         // ドラッグ中は位置を更新する
         transform.position = eventData.position;
+
+        //if (_netaInstantiate.Nowneta == null)
+        //{
+        // _netaInstantiate.NetaInst();
+        //}
+        
     }
     public void OnEndDrag(PointerEventData eventData)
     {
