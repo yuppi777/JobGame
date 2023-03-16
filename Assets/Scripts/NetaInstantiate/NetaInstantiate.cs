@@ -34,6 +34,8 @@ public class NetaInstantiate : MonoBehaviour
         //}
         GameObject prefab = Instantiate(_neta, _spwnearia.position.normalized, Quaternion.identity);
         prefab.transform.SetParent(_spwnearia.transform, false);
+
+        _nowneta = prefab;
     }
 
     private void Update()
@@ -43,7 +45,7 @@ public class NetaInstantiate : MonoBehaviour
         {
             NetaInst();
         }
-
+        //d‚¢‚Ì‚Í‚±‚±‚ªŒ´ˆö
 
     }
 

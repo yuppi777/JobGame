@@ -39,7 +39,7 @@ public class DragObj : MonoBehaviour, IDragHandler, IBeginDragHandler,IEndDragHa
         // print($"OnEndDrag : {eventData}");
 
 
-        _netaInstantiate.NetaInst();
+        //_netaInstantiate.NetaInst();
         
     }
 }

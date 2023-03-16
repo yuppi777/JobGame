@@ -33,7 +33,7 @@ public class Drop : MonoBehaviour, IDropHandler
             }
             else
             {
-                _netaInstantiate.NetaInst();
+                //_netaInstantiate.NetaInst();
                 Debug.Log("íœ‘ÎÛ");
                // Destroy(gameObject);
 
