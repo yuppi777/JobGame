@@ -4,4 +4,8 @@
 C#
 UniRX
 Unity 2021.3.13f1
+## BGMやイラスト
+BGM　URLを明記すればフリーで使用可能なものを使用
+https://music.storyinvention.com
 
+イラストはフリーのいらすとやさんと友人に書いてもらったものを使用
