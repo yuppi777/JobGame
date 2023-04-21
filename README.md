@@ -2,10 +2,10 @@
 ２年次の最後の審査会にむけて作り始めた作品です
 ## 使用言語と環境
 C#
-UniRX
+UniRX→https://github.com/neuecc/UniRx/blob/master/LICENSE
 Unity 2021.3.13f1
 
-DoTween
+DoTween→https://github.com/Demigiant/dotween#dotween
 ## BGMやイラスト
 BGM　URLを明記すればフリーで使用可能なものを使用
 https://music.storyinvention.com
