@@ -1,5 +1,5 @@
 # JobGame
-２年次の最後の審査会にむけて作り始めた作品です
+２年次の最後の審査会にむけて制作した作品です
 ## 使用言語と環境
 C#
 UniRX→https://github.com/neuecc/UniRx/blob/master/LICENSE
