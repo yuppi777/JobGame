@@ -6,6 +6,7 @@ UniRX→https://github.com/neuecc/UniRx/blob/master/LICENSE
 Unity 2021.3.13f1
 
 DoTween→https://github.com/Demigiant/dotween#dotween
+http://dotween.demigiant.com/license.php
 ## BGMやイラスト
 BGM　URLを明記すればフリーで使用可能なものを使用
 https://music.storyinvention.com
